@@ -2,11 +2,19 @@ name: Testing purpose
 on:
   workflow_dispatch:
     inputs:
-      env:
-        description: 'Deployment to perform: (develop, stage, preprod, prod)'
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - monalisa
+        - cschleiden
+      message:
         required: true
-        default: 'develop'
-
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: environment
 jobs:
   build:
     name: Sending message
