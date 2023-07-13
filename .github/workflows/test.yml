@@ -1,4 +1,4 @@
-name: Update Chromium Layer
+name: Testing purpose
 on:
   workflow_dispatch:
     inputs:
