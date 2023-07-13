@@ -2,25 +2,20 @@ name: Testing purpose
 on:
   workflow_dispatch:
     inputs:
-      name:
-        type: choice
-        description: Who to greet
-        options: 
-        - monalisa
-        - cschleiden
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: Include 🎉🤣 emojis
+      chromium-version:
+          description: What is the chromium version to upload?
+          required: true
+          default: 114.0.0
+          type: string
       environment:
         type: environment
 jobs:
   build:
-    name: Sending message
+    name: "Sending message [chromium-version: ${{ github.event.inputs.chromium-version }}]"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Deploy Test
-        run: .github/scripts/hello.sh
+        run: |
+          echo "Var1: ${{ github.event.inputs.chromium-version }}"
