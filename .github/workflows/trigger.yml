@@ -9,10 +9,10 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy
+    name: Sending message
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Deploy Test
-        run: .github/scripts/test.sh
+        run: .github/scripts/hello.sh
