@@ -15,4 +15,4 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Deploy Test
-        run: .github/workflows/test.sh
+        run: .github/test.sh
