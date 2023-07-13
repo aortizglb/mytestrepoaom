@@ -3,19 +3,16 @@ on:
   workflow_dispatch:
     inputs:
       chromium-version:
-          description: What is the chromium version to upload?
+          description: What is the Chromium version to upload?
           required: true
-          default: 114.0.0
+          default: 112.0.0
           type: string
-      environment:
-        type: environment
 jobs:
   build:
-    name: "Sending message [chromium-version: ${{ github.event.inputs.chromium-version }}]"
+    name: "Chromium version"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - name: Deploy Test
         run: |
-          echo "Var1: ${{ github.event.inputs.chromium-version }}"
+          echo "The chromium version to upload is: ${{ github.event.inputs.chromium-version }}"
